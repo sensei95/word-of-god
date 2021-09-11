@@ -1,0 +1,27 @@
+.footer-link {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+}
+
+@media (max-width: 768px) {
+    .footer-link,
+    .copyright {
+        color: #033870ea !important;
+        font-weight: bold !important;
+    }
+    .footer {
+        border-top: 1px solid #9e9e9e;
+        background: #8ebac3;
+    }
+    .copyright {
+        font-size: 1.25rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .copyright {
+        display: none;
+    }
+}
