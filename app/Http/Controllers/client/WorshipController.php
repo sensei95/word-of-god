@@ -10,7 +10,7 @@ class WorshipController extends Controller
 
     public function index()
     {
-        //
+        return view('client.pages.worship');
     }
 
     public function show(Worship $worship)

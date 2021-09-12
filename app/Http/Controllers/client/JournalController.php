@@ -9,7 +9,7 @@ class JournalController extends Controller
 {
     public function index()
     {
-        //
+        return view('client.pages.journal');
     }
 
     public function show(Journal $journal)

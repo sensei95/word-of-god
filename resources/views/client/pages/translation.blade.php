@@ -15,25 +15,16 @@
             </div>
 
             <div class="col-md-8 mt-4">
-                <div class="row justify-content-around  tbtn">
-                    <div class="col">
-                        <a class="nav-link tranl" href="#">смотреть</a>
-                    </div>
-                    <div class="col">
-                        <a class="nav-link tranl" href="#">слушать</a>
-
-                    </div>
+                <div class="d-flex flex-row justify-content-between">
+                    <a class="nav-link tranl" href="#">смотреть</a>
+                    <a class="nav-link tranl" href="#">слушать</a>
                 </div>
             </div>
 
             <div class="col-md-8 mt-5">
-                <div class="row justify-content-around tbtn">
-                    <div class="col">
-                        <a class="btn btn-link" href="#">видеоахив</a>
-                    </div>
-                    <div class="col">
-                        <a class="btn btn-link" href="#">аудиоархив</a>
-                    </div>
+                <div class="d-flex flex-row justify-content-between">
+                    <a class="btn btn-link" href="{{ route('video.index') }}">видеоахив</a>
+                    <a class="btn btn-link" href="#">аудиоархив</a>
                 </div>
             </div>
 
