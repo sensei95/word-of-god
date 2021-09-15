@@ -2,82 +2,47 @@
 
 @push('styles')
     <link rel="stylesheet" href="https://unpkg.com/plyr@3/dist/plyr.css">
-    <style>
-        .video__list{
-            background-color: transparent !important;
-        }
-
-        .video__list li{
-            background-color: transparent !important;
-        }
-
-    </style>
 @endpush
 @push('scripts')
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL"></script>
-    <script src="https://unpkg.com/plyr@3"></script>
-    <script>
-        // Change the second argument to your options:
-        // https://github.com/sampotts/plyr/#options
-        const player = new Plyr('video', {captions: {active: true}});
-        let selectedVideoId = null;
-        let activeVideoId = null;
-        let selectedVideoUrl = null;
-        let activeVideoUrl = null;
-        let videoPlayer = $('#player');
-
-        // player.play()
-
-        $.when($.ready).then(function(){
-        //     const videoItem = $('.video__item').each((index) => {
-        //         $(this).click()
-        // });
-
-            $('.video__item').click(function(){
-                selectedVideoId = $(this).attr('data-id');
-                selectedVideoUrl = $(this).attr('data-url');
-                console.log(player);
-               console.log(`id : ${selectedVideoId} url : ${selectedVideoUrl}`);
-
-               player.source = {
-                   type: 'video',
-                   sources: [
-                       {
-                           'src': selectedVideoUrl,
-                           type: 'video/mp4',
-                       }
-                   ]
-               }
-
-               player.play();
-            });
-        });
-
-
-
-
-
-        // Expose player so it can be used from the console
-        window.player = player;
-
-    </script>
+    <script src="{{ asset('js/video.js') }}"></script>
 @endpush
 
 @section('content')
     <div class="container">
-        <div class="video-player-container">
-            <video id="player" playsinline controls data-poster="{{ asset('images/flash.png') }}">
-{{--                <source src="https://wordofgod.ru/files/upload/data/video/20-09-02 Сергей Волков_Мир наших мыслей.mp4" type="video/mp4" />--}}
-{{--                <source src="https://wordofgod.ru/files/upload/data/video/20-09-02 Сергей Волков_Мир наших мыслей.flv" type="video/flv" />--}}
+        <header class="page_title">ВИДЕОАРХИВ</header>
+        <div class="video_player_container">
+            <figure class="video_player" id="video_player" data-current="1">
 
-                <!-- Captions are optional -->
-                <track kind="captions" label="English captions" src="/path/to/captions.vtt" srclang="en" default />
-            </video>
+                <video controls>
+                    <source src="{{ $videos[0]['url'] }}" type="video/mp4" />
+                </video>
+                <div class="video_controls">
+                    <button id="prev_btn" class="btn btn-primary"><i class="bi bi-caret-left"></i></button>
+                    <button id="next_btn" class="btn btn-primary"><i class="bi bi-caret-right"></i></button>
+                </div>
+                <figcaption>
+                    <h2 class="video_current_title">{{ $videos[0]['name'] }}</h2>
+                    <ul class="list-group list-group-flush video__list my-5">
+                        @foreach($videos as $i => $video)
+                        <li class="list-group-item cursor-pointer video_item {{ ($i + 1) == 1 ? 'active_video' : '' }}">
+                            <a
+                                class="video_link"
+                                href="{{ $video['url'] }}"
+                                id="video_{{ ($i + 1) }}"
+                                data-id="{{ ($i + 1) }}"
+                            >
+                                <i class="bi bi-caret-right-fill play_icon"></i>
+                                {{ $video['name'] }}
+                            </a
+                            >
+                            <a class="video_download_btn" href="{{ $video['url'] }}" download="">
+                                <i class="bi bi-download"></i>
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
+                </figcaption>
+            </figure>
         </div>
-        <ul class="list-group list-group-flush video__list my-5">
-            @foreach($videos as $i => $video)
-                <li class="list-group-item cursor-pointer video__item" data-url="{{$video['url']}}" data-id="{{ $i }}">{{ $video['name'] }}</li>
-            @endforeach
-        </ul>
     </div>
 @endsection

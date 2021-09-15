@@ -3,6 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" integrity="sha512-xnP2tOaCJnzp2d2IqKFcxuOiVCbuessxM6wuiolT9eeEJCyy0Vhcwa4zQvdrZNVqlqaxXhHqsSV1Ww7T2jSCUQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/header.css') }}" rel="stylesheet">
@@ -18,7 +22,7 @@
 <div class="container header">
     <nav class="navbar navbar-expand-md navbar-light">
         <a class="navbar-brand" href="{{route('client.home')}}">
-            <img src="images/o.png" width="50" height="50" alt="" srcset=""></a>
+            <img src="{{ asset('images/o.png') }}" width="50" height="50" alt="" srcset=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#togglePhone"
                 aria-controls="togglePhone" aria-expanded="false" aria-label="Toggle Navigation">
             <span class="navbar-toggler-icon"></span>
@@ -50,8 +54,8 @@
         </div>
     </nav>
 
-    <div class="col">
-        <img class="top-image" src="images/flash.png" alt="word of God">
+    <div class="banner my-5">
+        <img src="{{ asset('images/flash.png') }}" alt="">
     </div>
 </div>
 {{--<div id="app">--}}
