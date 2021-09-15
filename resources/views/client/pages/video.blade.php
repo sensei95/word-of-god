@@ -2,6 +2,7 @@
 
 @push('styles')
     <link rel="stylesheet" href="https://unpkg.com/plyr@3/dist/plyr.css">
+    <link rel="stylesheet" href="{{ asset('css/video.css') }}">
 @endpush
 @push('scripts')
     <script src="{{ asset('js/video.js') }}"></script>
