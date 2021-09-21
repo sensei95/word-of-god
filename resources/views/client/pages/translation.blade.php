@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center mt-3">
+        <header class="page_title">ТРАНСЛЯЦИЯ</header>
+        <div class="mt-3 row justify-content-center">
             <div class="col-md-8">
                 <p>Если у вас нет церкви, куда пойти, мы будем очень рады, если вы присоединитесь к трансляции нашего
                     Богослужения.
@@ -14,21 +15,21 @@
                 </p>
             </div>
 
-            <div class="col-md-8 mt-4">
-                <div class="d-flex flex-row justify-content-between">
+            <div class="mt-4 col-md-8">
+                <div class="flex-row d-flex justify-content-between">
                     <a class="nav-link tranl" href="{{ route('client.translation.video.show') }}">смотреть</a>
                     <a class="nav-link tranl" href="{{ route('client.translation.audio.show') }}">слушать</a>
                 </div>
             </div>
 
-            <div class="col-md-8 mt-5">
-                <div class="d-flex flex-row justify-content-between">
-                    <a class="btn btn-link" href="{{ route('client.video.list') }}">видеоахив</a>
-                    <a class="btn btn-link" href="{{ route('client.audio.list') }}">аудиоархив</a>
+            <div class="mt-5 col-md-8">
+                <div class="flex-row d-flex justify-content-between">
+                    <a class="archive_btn btn btn-link" href="{{ route('client.video.list') }}">видеоахив</a>
+                    <a class="archive_btn btn btn-link" href="{{ route('client.audio.list') }}">аудиоархив</a>
                 </div>
             </div>
 
-            <div class="col-md-8 mt-5">
+            <div class="mt-5 col-md-8">
                 <p class="text-center">БЛИЖАЙШАЯ ТРАНСЛЯЦИЯ - 22 СЕНТЯБРЯ, СРЕДА, В 19:00</p>
             </div>
         </div>

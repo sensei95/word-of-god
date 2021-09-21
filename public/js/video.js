@@ -10,8 +10,8 @@ function handler(e) {
     let video_target = this.getAttribute("href");
 
     removeActiveClass();
-    this.classList.add("active_video");
-    this.parentNode.classList.add("active_video");
+    this.classList.add("active_media");
+    this.parentNode.classList.add("active_media");
     video_player.setAttribute("data-current", this.getAttribute("data-id"));
     playVideo(video_target);
     console.log(this.getAttribute("data-id"));
@@ -54,7 +54,9 @@ next_btn.addEventListener("click", (e) => {
         .getAttribute("href");
 
     removeActiveClass();
-    document.getElementById("video_" + next_video).parentNode.classList.add("active_video");
+    document
+        .getElementById("video_" + next_video)
+        .parentNode.classList.add("active_media");
 
     playVideo(video_target);
     // console.log(`current : ${parseInt(current_video)}, next: ${next_video}`);
@@ -81,7 +83,9 @@ prev_btn.addEventListener("click", (e) => {
         .getAttribute("href");
 
     removeActiveClass();
-    document.getElementById("video_" + next_video).parentNode.classList.add("active_video");
+    document
+        .getElementById("video_" + next_video)
+        .parentNode.classList.add("active_media");
 
     playVideo(video_target);
     // console.log(`current : ${parseInt(current_video)}, next: ${next_video}`);
@@ -89,6 +93,6 @@ prev_btn.addEventListener("click", (e) => {
 
 function removeActiveClass() {
     for (let i = 0; i < links.length; i++) {
-        links[i].parentNode.classList.remove("active_video");
+        links[i].parentNode.classList.remove("active_media");
     }
 }

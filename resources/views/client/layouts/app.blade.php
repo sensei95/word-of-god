@@ -27,7 +27,7 @@
                 aria-controls="togglePhone" aria-expanded="false" aria-label="Toggle Navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse  justify-content-center" id="togglePhone">
+        <div class="collapse navbar-collapse justify-content-center" id="togglePhone">
             <ul class="navbar-nav">
                 <li>
                     <a class="nav-link {{(request()->routeIs('client.home')?'active':'')}}"
@@ -54,13 +54,13 @@
         </div>
     </nav>
 
-    <div class="banner my-5">
+    <div class="my-5 banner">
         <img src="{{ asset('images/flash.png') }}" alt="">
     </div>
 </div>
-{{--<div id="app">--}}
+<main class="main_content" id="app">
 @yield("content")
-{{--</div>--}}
+</main>
 
 <footer class="footer fixed-bottom">
     <div class="container footer">
@@ -75,7 +75,7 @@
                 <a class="nav-link footer-link" href="journal.html">контакты</a>
             </li>
         </ul>
-        <p class="text-center copyright mt-2">&copy;Copyright </p>
+        <p class="mt-2 text-center copyright">&copy;Copyright </p>
     </div>
 </footer>
 <script src="{{ asset('js/app.js') }}"></script>
